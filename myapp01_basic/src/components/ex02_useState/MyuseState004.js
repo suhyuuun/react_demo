@@ -8,14 +8,20 @@ const MyuseState004 = () => {
   });
 
   const handleName = (e) => {
+    //    setCustomer({ ...customer, name: e.target.value });
+
     setCustomer((prevState) => {
       return { ...prevState, name: e.target.value };
     });
   };
 
-  const handleAddress = (e) => {};
+  const handleAddress = (e) => {
+    setCustomer({ ...customer, address: e.target.value });
+  };
 
-  const handlePhone = (e) => {};
+  const handlePhone = (e) => {
+    setCustomer({ ...customer, phone: e.target.value });
+  };
 
   const handleCommit = (e) => {
     console.log(`${customer.name} ${customer.address} ${customer.phone}`);

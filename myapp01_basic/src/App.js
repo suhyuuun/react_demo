@@ -9,6 +9,8 @@ import MyBasic001 from "./components/ex02_useState/MyBasic001";
 import MyuseState002 from "./components/ex02_useState/MyuseState002";
 import MyuseState003 from "./components/ex02_useState/MyuseState003";
 import MyuseState004 from "./components/ex02_useState/MyuseState004";
+import MyuseState005 from "./components/ex02_useState/MyuseState005";
+import MyuseState006 from "./components/ex02_useState/MyuseState006";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
       {/* {<MyBasic001 />} */}
       {/* {<MyuseState002 />} */}
       {/* {<MyuseState003 />} */}
-      {<MyuseState004 />}
+      {/* {<MyuseState004 />} */}
+      {/* {<MyuseState005 />} */}
+      {<MyuseState006 />}
     </div>
   );
 }
