@@ -8,6 +8,7 @@ import MyJsx005 from "./components/ex01_jsx/MyJsx005";
 import MyBasic001 from "./components/ex02_useState/MyBasic001";
 import MyuseState002 from "./components/ex02_useState/MyuseState002";
 import MyuseState003 from "./components/ex02_useState/MyuseState003";
+import MyuseState004 from "./components/ex02_useState/MyuseState004";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       {/* {<MyJsx005 />} */}
       {/* {<MyBasic001 />} */}
       {/* {<MyuseState002 />} */}
-      <MyuseState003 />
+      {/* {<MyuseState003 />} */}
+      {<MyuseState004 />}
     </div>
   );
 }
