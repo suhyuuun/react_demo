@@ -21,6 +21,7 @@ import MyuseReducer001 from "./components/ex06_useReducer/MyuseReducer001";
 import MyuseReducer002 from "./components/ex06_useReducer/MyuseReducer002";
 import Myprops001 from "./components/ex07_props/Myprops001";
 import Myprops002 from "./components/ex07_props/Myprops002";
+import Myprops003 from "./components/ex07_props/Myprops003";
 
 function App() {
   return (
@@ -45,8 +46,13 @@ function App() {
       {/* {<MyuseReducer001 />} */}
       {/* {<MyuseReducer002 />} */}
       {/* {<Myprops001 name="홍길동" />} */}
-      {<Myprops002 name="홍길동" age="30" loc="경기" />}
+
+      {/* {<Myprops002 name="홍길동" age="30" loc="경기" />} */}
       {/* 숫자도 따옴표로 묶어서 넘겨야함 */}
+      {/* 태그에서 값 지정할때에는 콤마사용안함 */}
+
+      {/* {<Myprops003 name="홍길동" />} */}
+      {<Myprops003 name="홍길동" age="30" loc="경기" />}
     </div>
   );
 }
