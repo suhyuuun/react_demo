@@ -17,12 +17,30 @@ function App() {
   const [todos, setTodos] = useState([...boardList]);
   const [input, setInput] = useState("");
 
-  const insertTodo = () => {};
+  const insertTodo = (e) => {
+    e.preventDefault();
+    setTodos([
+      { id: todos.length + 1, todoname: input, completed: 0 },
+      ...todos,
+    ]);
+
+    setInput("");
+  };
 
   const handleChangeText = (e) => {
-    //e.preventDefault();
     setInput(e.target.value);
   };
+
+  const updateTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, completed: todo.completed == 1 ? 0 : 1 }
+          : todo
+      )
+    );
+  };
+  //넘겨받는 값 여러개이면 {return } 사용하기
 
   useEffect(() => {
     console.log("input:" + input);
@@ -44,7 +62,14 @@ function App() {
         ? todos.map((todo) => {
             return (
               <div className="todo" key={todo.id}>
-                <h3>{todo.todoname}</h3>
+                <h3>
+                  <label
+                    className={todo.completed ? "completed" : null}
+                    onClick={() => updateTodo(todo.id)}
+                  >
+                    {todo.todoname}
+                  </label>
+                </h3>
               </div>
             );
           })
@@ -52,5 +77,6 @@ function App() {
     </div>
   );
 }
+//updateTodo값에 파라미터값 있어서 onClick에서 바로 처리
 
 export default App;
