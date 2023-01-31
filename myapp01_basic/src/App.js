@@ -12,6 +12,9 @@ import MyuseState004 from "./components/ex02_useState/MyuseState004";
 import MyuseState005 from "./components/ex02_useState/MyuseState005";
 import MyuseState006 from "./components/ex02_useState/MyuseState006";
 import MyuseRef001 from "./components/ex03_useRef/MyuseRef001";
+import MyuseRef002 from "./components/ex03_useRef/MyuseRef002";
+import MyuseEffect001 from "./components/ex04_useEffect/MyuseEffect001";
+import MyuseEffect002 from "./components/ex04_useEffect/MyuseEffect002";
 
 function App() {
   return (
@@ -27,7 +30,10 @@ function App() {
       {/* {<MyuseState004 />} */}
       {/* {<MyuseState005 />} */}
       {/* {<MyuseState006 />} */}
-      {<MyuseRef001 />}
+      {/* {<MyuseRef001 />} */}
+      {/* {<MyuseRef002 />}*/}
+      {/* {<MyuseEffect001 />} */}
+      {<MyuseEffect002 />}
     </div>
   );
 }
