@@ -18,6 +18,9 @@ import MyuseEffect002 from "./components/ex04_useEffect/MyuseEffect002";
 import MyuseStatesync001 from "./components/ex05_async/MyuseStatesync001";
 import MyuseStatesync002 from "./components/ex05_async/MyuseStatesync002";
 import MyuseReducer001 from "./components/ex06_useReducer/MyuseReducer001";
+import MyuseReducer002 from "./components/ex06_useReducer/MyuseReducer002";
+import Myprops001 from "./components/ex07_props/Myprops001";
+import Myprops002 from "./components/ex07_props/Myprops002";
 
 function App() {
   return (
@@ -39,7 +42,11 @@ function App() {
       {/* {<MyuseEffect002 />} */}
       {/* {<MyuseStatesync001 />} */}
       {/* {<MyuseStatesync002 />} */}
-      {<MyuseReducer001 />}
+      {/* {<MyuseReducer001 />} */}
+      {/* {<MyuseReducer002 />} */}
+      {/* {<Myprops001 name="홍길동" />} */}
+      {<Myprops002 name="홍길동" age="30" loc="경기" />}
+      {/* 숫자도 따옴표로 묶어서 넘겨야함 */}
     </div>
   );
 }
