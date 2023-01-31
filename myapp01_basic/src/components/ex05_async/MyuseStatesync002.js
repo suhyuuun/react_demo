@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MyuseStatesync001 = () => {
+const MyuseStatesync002 = () => {
   const [number, setNumber] = useState(0);
 
   /*
@@ -11,16 +11,12 @@ const MyuseStatesync001 = () => {
   */
 
   const handleUpNumber = () => {
-    setNumber(number + 3);
-    console.log(number);
-
-    setNumber(number + 2);
-    console.log(number);
-
-    setNumber(number + 1);
-    console.log(number);
+    //state의 값을 순차적으로 변경할 때 콜백함수를 사용한다.
+    setNumber((number) => number + 1);
+    setNumber((number) => number + 1);
+    setNumber((number) => number + 1);
   };
-  //랜더링 형식, 차곡차곡 쌓여있다가 마지막 식만 활용
+  //모든 식 활용하고 싶으면 콜백함수로 처리
 
   const handleDownNumber = () => {
     setNumber(number - 1);
@@ -34,4 +30,4 @@ const MyuseStatesync001 = () => {
     </div>
   );
 };
-export default MyuseStatesync001;
+export default MyuseStatesync002;

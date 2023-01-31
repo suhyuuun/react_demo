@@ -16,6 +16,8 @@ import MyuseRef002 from "./components/ex03_useRef/MyuseRef002";
 import MyuseEffect001 from "./components/ex04_useEffect/MyuseEffect001";
 import MyuseEffect002 from "./components/ex04_useEffect/MyuseEffect002";
 import MyuseStatesync001 from "./components/ex05_async/MyuseStatesync001";
+import MyuseStatesync002 from "./components/ex05_async/MyuseStatesync002";
+import MyuseReducer001 from "./components/ex06_useReducer/MyuseReducer001";
 
 function App() {
   return (
@@ -35,7 +37,9 @@ function App() {
       {/* {<MyuseRef002 />}*/}
       {/* {<MyuseEffect001 />} */}
       {/* {<MyuseEffect002 />} */}
-      {<MyuseStatesync001 />}
+      {/* {<MyuseStatesync001 />} */}
+      {/* {<MyuseStatesync002 />} */}
+      {<MyuseReducer001 />}
     </div>
   );
 }
