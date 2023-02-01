@@ -1,10 +1,12 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 
-import Input from "./components/input1"; //js는 확장자 생략가능
-import Todo from "./components/todo1";
+import Input from "./components/input2"; //js는 확장자 생략가능
+import Todo from "./components/todo2";
+import { InputContext } from "./contexts/InputContext";
+import { TodoContext } from "./contexts/TodoContext";
 
-//상태전달 : props
+//상태전달 : Context API + useContext()
 function App() {
   const wrap = {
     width: "500px",
@@ -56,13 +58,15 @@ function App() {
 
   return (
     <div className="App" style={wrap}>
-      <h1>TODO LIST 1</h1>
-      <Input
-        input={input}
-        insertTodo={insertTodo}
-        handleChangeText={handleChangeText}
-      />
-      <Todo todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
+      <h1>TODO LIST 2</h1>
+
+      <InputContext.Provider value={{ input, insertTodo, handleChangeText }}>
+        <Input />
+      </InputContext.Provider>
+
+      <TodoContext.Provider value={{ todos, updateTodo, deleteTodo }}>
+        <Todo />
+      </TodoContext.Provider>
     </div>
   );
 }
