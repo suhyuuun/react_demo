@@ -8,14 +8,21 @@ function App() {
     margin: "10px auto",
   };
 
+  //db, backend 주소
+  const baseUrl = "http://localhost:8090/myapp";
+
   let boardList = [
     { id: 1, todoname: "운동하기", completed: 0 },
     { id: 2, todoname: "SNS꾸미기", completed: 0 },
     { id: 3, todoname: "사진정리하기", completed: 0 },
   ];
 
-  const [todos, setTodos] = useState([...boardList]);
+  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+
+  function getTodos() {
+    //여기에서 DB접근하는 거 적용
+  }
 
   const insertTodo = (e) => {
     e.preventDefault();
