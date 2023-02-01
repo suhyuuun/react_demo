@@ -1,6 +1,10 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 
+import Input from "./components/input1"; //js는 확장자 생략가능
+import Todo from "./components/todo1";
+
+//상태전달 : props
 function App() {
   const wrap = {
     width: "500px",
@@ -52,43 +56,15 @@ function App() {
 
   return (
     <div className="App" style={wrap}>
-      <h1>TODO LIST</h1>
-      <form onSubmit={insertTodo}>
-        <input
-          type="text"
-          required={true}
-          value={input}
-          onChange={handleChangeText}
-        />
-        <input type="submit" value="Create" />
-      </form>
-      {todos
-        ? todos.map((todo) => {
-            return (
-              <div className="todo" key={todo.id}>
-                <h3>
-                  <label
-                    className={todo.completed ? "completed" : null}
-                    onClick={() => updateTodo(todo.id)}
-                  >
-                    {todo.todoname}
-                  </label>
-
-                  <label
-                    onClick={() => {
-                      deleteTodo(todo.id);
-                    }}
-                  >
-                    &nbsp;&nbsp;삭제
-                  </label>
-                </h3>
-              </div>
-            );
-          })
-        : null}
+      <h1>TODO LIST 1</h1>
+      <Input
+        input={input}
+        insertTodo={insertTodo}
+        handleChangeText={handleChangeText}
+      />
+      <Todo todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }
-//updateTodo값에 파라미터값 있어서 onClick에서 바로 처리
 
 export default App;
