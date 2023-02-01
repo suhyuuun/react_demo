@@ -14,7 +14,7 @@ export const reducer = (todos = boardList, action) => {
         { id: todos.length + 1, todoname: action.todoname, completed: 0 },
         ...todos,
       ];
-    case "UPDATE": //수정
+    case "UPDATE":
       return todos.map((todo) =>
         todo.id === action.id
           ? { ...todo, completed: todo.completed === 1 ? 0 : 1 }

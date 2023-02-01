@@ -1,3 +1,5 @@
+//input -> todo -> label
+
 const Input = (props) => {
   const { input, insertTodo, handleChangeText } = props;
   //값이 아닌 주소가 넘어옴
