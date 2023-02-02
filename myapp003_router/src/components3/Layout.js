@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 //스타일 지정시 Link아닌 NavLink 사용해야함
 
 const activeStyle = ({ isActive }) => ({
