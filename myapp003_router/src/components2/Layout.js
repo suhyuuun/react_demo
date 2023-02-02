@@ -21,7 +21,7 @@ const Layout = () => {
             {/* <a>요소는 전체를 모드 렌더링하므로  <Link> 또는 <NavLink>을 사용한다. */}
             {/* <a href="/dashboard">Dashboard</a>  */}
             <NavLink to="/dashboard" style={activeStyle}>
-              Dashboar
+              Dashboard
             </NavLink>
           </li>
 

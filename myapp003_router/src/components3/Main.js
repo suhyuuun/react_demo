@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Main = () => {
   return (
     <div>
-      <h2>Product</h2>
+      <h2> Product</h2>
       <ul>
         <li>
           <Link to="/product/1">1번상품</Link>
