@@ -1,4 +1,5 @@
 //function reducer(state, action){}
+
 let boardList = [
   { id: 1, todoname: "운동하기", completed: 0 },
   { id: 2, todoname: "SNS꾸미기", completed: 0 },
