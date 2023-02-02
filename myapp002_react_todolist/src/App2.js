@@ -2,7 +2,12 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { baseUrl } from "./commonApi/todoApi";
+import Input from "./components/input2";
+import Todo from "./components/todo2";
+import { InputContext } from "./contexts/InputContext";
+import { TodoContext } from "./contexts/TodoContext";
 
+//상태전달 : Context Api + useContext()
 function App() {
   const wrap = {
     width: "500px",
@@ -10,20 +15,13 @@ function App() {
     margin: "10px auto",
   };
 
-  //db, backend 주소
-  //하지만 매번 잡아주기 힘듦
-  //새로운 js를 만들어서 import 활용하기 -> 여러개의 페이지에서 상수값 활용할때
-  //const baseUrl = "http://localhost:8090";
-
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
-  //렌더링이 다 끝나고 호출하는 함수
   useEffect(() => {
     getTodos();
   }, []);
 
-  //https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/await
   async function getTodos() {
     //여기에서 DB접근하는 거 적용
     //npm install axios
@@ -95,40 +93,13 @@ function App() {
 
   return (
     <div className="App" style={wrap}>
-      <h1>TODO LIST</h1>
-      <form onSubmit={insertTodo}>
-        <input
-          type="text"
-          required={true}
-          value={input}
-          onChange={handleChangeText}
-        />
-        <input type="submit" value="Create" />
-      </form>
-      {todos
-        ? todos.map((todo) => {
-            return (
-              <div className="todo" key={todo.id}>
-                <h3>
-                  <label
-                    className={todo.completed ? "completed" : null}
-                    onClick={() => updateTodo(todo.id, todo.completed)}
-                  >
-                    {todo.todoname}
-                  </label>
-
-                  <label
-                    onClick={() => {
-                      deleteTodo(todo.id);
-                    }}
-                  >
-                    &nbsp;&nbsp;삭제
-                  </label>
-                </h3>
-              </div>
-            );
-          })
-        : null}
+      <h1>TODO LIST2(Context Api)</h1>
+      <InputContext.Provider value={{ input, insertTodo, handleChangeText }}>
+        <Input />
+      </InputContext.Provider>
+      <TodoContext.Provider value={{ todos, updateTodo, deleteTodo }}>
+        <Todo />
+      </TodoContext.Provider>
     </div>
   );
 }
