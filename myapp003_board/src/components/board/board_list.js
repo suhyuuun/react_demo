@@ -11,6 +11,7 @@ const BoardList = () => {
   const { currentPage } = useParams();
 
   useEffect(() => {
+    console.log("dd:" + currentPage);
     getList(currentPage ? currentPage : 1);
   }, []);
 
@@ -51,7 +52,7 @@ const BoardList = () => {
             return (
               <TableRow
                 board={board}
-                currentPage={currentPage}
+                currentPage={pv.currentPage}
                 key={board.num}
               />
             );
