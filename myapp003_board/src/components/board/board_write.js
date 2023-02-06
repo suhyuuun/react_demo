@@ -52,6 +52,7 @@ const BoardWrite = () => {
       formData.append("ref", ref);
       formData.append("re_step", re_step);
       formData.append("re_level", re_level);
+      formData.append("currentPage", currentPage);
     }
 
     const config = {
