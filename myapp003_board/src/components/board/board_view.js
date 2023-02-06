@@ -27,6 +27,28 @@ const BoardView = () => {
         console.log(err.message);
       }); //backend 접속하는 주소
   };
+
+  //download
+  const handleDownLoad = async () => {
+    await axios
+      .get(`${baseUrl}/board/contentdownload/${board.upload}`, {
+        responseType: "blob",
+      })
+      .then((response) => {
+        console.log(response.headers);
+        const fileName = board.upload.substring(board.upload.indexOf("_") + 1);
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", fileName);
+        link.style.cssText = "display:none";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      })
+      .catch((err) => console.error(err.message));
+  };
+
   return (
     <div>
       <table className="table table-striped" style={{ marginTop: 20 }}>
@@ -51,6 +73,17 @@ const BoardView = () => {
           <tr>
             <th>내용</th>
             <td colSpan="3">{board.content}</td>
+          </tr>
+
+          <tr>
+            <th>파일</th>
+            <td colSpan="3">
+              <button onClick={handleDownLoad}>
+                {board.upload
+                  ? board.upload.substring(board.upload.indexOf("_") + 1)
+                  : null}
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

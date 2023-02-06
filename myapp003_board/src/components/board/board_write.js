@@ -61,7 +61,11 @@ const BoardWrtie = () => {
           content: "",
           filename: null,
         });
-        navigator(`/board/list/${currentPage ? currentPage : 1}`);
+        // front단에서 처리
+        // navigator(`/board/list/${currentPage ? currentPage : 1}`);
+
+        // back단에서 처리
+        navigator(`/board/list/${response.data}`);
       })
       .catch((err) => {
         console.log(err.message);
