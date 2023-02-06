@@ -5,7 +5,7 @@ import Home from "./components/home";
 import BaseLayout from "./components/layout/BaseLayout";
 import BoardList from "./components/board/board_list";
 import BoardView from "./components/board/board_view";
-import BoardWrtie from "./components/board/board_write";
+import BoardWrite from "./components/board/board_write";
 
 function App() {
   return (
@@ -19,7 +19,11 @@ function App() {
           </Route>
 
           <Route path="board/view/:currentPage/:num" element={<BoardView />} />
-          <Route path="board/write" element={<BoardWrtie />} />
+          <Route path="board/write" element={<BoardWrite />} />
+          <Route
+            path="board/write/:currentPage/:num/:ref/:re_step/:re_level"
+            element={<BoardWrite />}
+          />
         </Route>
       </Routes>
     </div>

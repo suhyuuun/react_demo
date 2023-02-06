@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { baseUrl } from "../../commonApi/todoApi";
 
 //BoardList(TableRow) : <Link to={`/board/view/${currentPage}/${board.num}`}>{board.subject}</Link>
@@ -49,6 +49,8 @@ const BoardView = () => {
       .catch((err) => console.error(err.message));
   };
 
+  const handleDelete = () => {};
+
   return (
     <div>
       <table className="table table-striped" style={{ marginTop: 20 }}>
@@ -87,6 +89,27 @@ const BoardView = () => {
           </tr>
         </tbody>
       </table>
+
+      <Link className="btn btn-primary" to={`/board/list/${currentPage}`}>
+        리스트
+      </Link>
+      <Link
+        className="btn btn-primary"
+        to={`/board/write/${currentPage}/${num}/${board.ref}/${board.re_step}/${board.re_level}`}
+      >
+        답변
+      </Link>
+
+      <Link
+        className="btn btn-primary"
+        to={`/board/update/${currentPage}/${num}`}
+      >
+        수정
+      </Link>
+
+      <button className="btn btn-primary" onClick={handleDelete}>
+        삭제
+      </button>
     </div>
   );
 };

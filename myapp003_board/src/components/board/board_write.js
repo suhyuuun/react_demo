@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { baseUrl } from "../../commonApi/todoApi";
 
-const BoardWrtie = () => {
+const BoardWrite = () => {
   const [inputs, setInupts] = useState({
     writer: "",
     email: "",
@@ -45,6 +45,14 @@ const BoardWrtie = () => {
     formData.append("content", content);
     console.log("filename: ", filename);
     if (filename !== null) formData.append("filename", filename);
+
+    //답변글이면
+    if (num !== undefined) {
+      formData.append("num", num);
+      formData.append("ref", ref);
+      formData.append("re_step", re_step);
+      formData.append("re_level", re_level);
+    }
 
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
@@ -164,4 +172,4 @@ const BoardWrtie = () => {
   );
 };
 
-export default BoardWrtie;
+export default BoardWrite;
