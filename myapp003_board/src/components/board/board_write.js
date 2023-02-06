@@ -73,7 +73,7 @@ const BoardWrite = () => {
         // front단에서 처리
         // navigator(`/board/list/${currentPage ? currentPage : 1}`);
 
-        // back단에서 처리
+        // back단에서 처리 -> 굳이 이럴필요는 없음!
         navigator(`/board/list/${response.data}`);
       })
       .catch((err) => {
