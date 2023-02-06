@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { baseUrl } from "../../commonApi/todoApi";
 
+//BoardList(TableRow) : <Link to={`/board/view/${currentPage}/${board.num}`}>{board.subject}</Link>
+//App.js : <Route path='board/view/:currentPage/:num' element={<boardView />} />
+//BoardView : const {currentPage, num} = useParam();
+
 const BoardView = () => {
   const [board, setBoard] = useState({});
   const { currentPage, num } = useParams();
