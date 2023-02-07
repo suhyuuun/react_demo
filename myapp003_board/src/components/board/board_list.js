@@ -48,23 +48,24 @@ const BoardList = () => {
         </thead>
 
         <tbody>
-          {BoardList.map((board) => {
-            return (
-              <TableRow
-                board={board}
-                currentPage={pv.currentPage}
-                key={board.num}
-              />
-            );
-          })}
+          {BoardList &&
+            BoardList.map((board) => {
+              return (
+                <TableRow
+                  board={board}
+                  currentPage={pv.currentPage}
+                  key={board.num}
+                />
+              );
+            })}
         </tbody>
       </table>
       <PageNavigation
-        currentPage={pv.currentPage}
-        startPage={pv.startPage}
-        endPage={pv.endPage}
-        blockPage={pv.blockPage}
-        totalPage={pv.totalPage}
+        currentPage={pv && pv.currentPage}
+        startPage={pv && pv.startPage}
+        endPage={pv && pv.endPage}
+        blockPage={pv && pv.blockPage}
+        totalPage={pv && pv.totalPage}
         getList={getList}
       />
     </div>

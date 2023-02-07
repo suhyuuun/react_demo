@@ -6,6 +6,7 @@ import BaseLayout from "./components/layout/BaseLayout";
 import BoardList from "./components/board/board_list";
 import BoardView from "./components/board/board_view";
 import BoardWrite from "./components/board/board_write";
+import BoardUpdate from "./components/board/board_update";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
           <Route
             path="board/write/:currentPage/:num/:ref/:re_step/:re_level"
             element={<BoardWrite />}
+          />
+          <Route
+            path="board/update/:currentPage/:num"
+            element={<BoardUpdate />}
           />
         </Route>
       </Routes>

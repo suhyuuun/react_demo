@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { baseUrl } from "../../commonApi/todoApi";
 
 //BoardList(TableRow) : <Link to={`/board/view/${currentPage}/${board.num}`}>{board.subject}</Link>
@@ -8,6 +8,7 @@ import { baseUrl } from "../../commonApi/todoApi";
 //BoardView : const {currentPage, num} = useParam();
 
 const BoardView = () => {
+  const navigator = useNavigate();
   const [board, setBoard] = useState({});
   const { currentPage, num } = useParams();
   console.log(currentPage, num);
@@ -49,7 +50,15 @@ const BoardView = () => {
       .catch((err) => console.error(err.message));
   };
 
-  const handleDelete = () => {};
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    await axios
+      .delete(`${baseUrl}/board/delete/${num}`)
+      .then((response) => {
+        navigator(`/board/list/${currentPage}`);
+      })
+      .catch((err) => console.error(err.message));
+  };
 
   return (
     <div>
