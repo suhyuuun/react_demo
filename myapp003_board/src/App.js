@@ -7,6 +7,7 @@ import BoardList from "./components/board/board_list";
 import BoardView from "./components/board/board_view";
 import BoardWrite from "./components/board/board_write";
 import BoardUpdate from "./components/board/board_update";
+import JoinForm from "./components/login/JoinForm.js";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<Home />} />
+          <Route path="join" element={<JoinForm />} />
+
           <Route path="board" element={<BoardList />}>
             <Route path="list/:currentPage" element={<BoardList />} />
           </Route>
