@@ -20,6 +20,14 @@ const JoinForm = () => {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
+        setMember({
+          username: "",
+          password: "",
+          email: "",
+          authRole: "ROLE_MEMBER",
+        });
+      })
+      .then((response) => {
         navigator("/");
       })
       .catch((err) => {

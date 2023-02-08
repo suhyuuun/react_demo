@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { baseUrl } from "../../commonApi/todoApi";
 
 const LoginPage = () => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,8 +30,10 @@ const LoginPage = () => {
       )
       .then((response) => {
         // console.log("response:", response.data);
+        console.log(response.headers);
+        let jwtToken = response.headers["Authorization"];
+        // 토큰값을 받을 때에는 대문자로 보내도 소문자로 받아야함
 
-        let jwtToken = response.headers["authorization"];
         let jwtUsername = response.data.username;
         console.log("jwtToken", jwtToken);
         localStorage.setItem("Authorization", jwtToken);
