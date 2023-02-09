@@ -33,6 +33,7 @@ const LoginPage = () => {
         console.log(response.headers);
         let jwtToken = response.headers["authorization"];
         // 토큰값을 받을 때에는 대문자로 보내도 소문자로 받아야함
+        //let jwtToken = response.headers.get('Authorization');
 
         let jwtUsername = response.data.username;
         console.log("jwtToken", jwtToken);
