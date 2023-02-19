@@ -6,7 +6,7 @@ import { baseUrl } from "../../commonApi/todoApi";
 const JoinForm = () => {
   const navigator = useNavigate();
   // useState로쓸필요없다 화면에 표시되는게 아니어서..
-  const member = useRef({
+  const [member, setMember] = useState({
     username: "",
     password: "",
     passwordConfirm: "",
@@ -73,6 +73,7 @@ const JoinForm = () => {
     if (target !== "submit" && target === "username") {
       const idRegExp = /^(?=.*[a-z])(?=.*\d)[a-z0-9]{4,12}$/;
       console.log(member.username);
+      // console.log(member.username.length);
       if (!idRegExp.test(member.username)) {
         setEffect({ ...effect, username: false });
         return { valid: false, where: "username" };
@@ -165,12 +166,19 @@ const JoinForm = () => {
                 중복확인
               </button>
             </div>
-            {/* 유효성체크할려면 이렇게 해야된답니다. */}
-            {effect.username ? (
+            {/* 유효성체크 */}
+            {/* {effect.username ? (
               <span id='idMsg' style={{ color: "green" }}>
                 사용가능한 아이디입니다😄
               </span>
             ) : (
+              <span id='idMsg' style={{ color: "red" }}>
+                {message.username}
+              </span>
+            )} */}
+
+            {/* 오류창 안뜨다가 잘못입력하면 나오는게 더 깔끔할까 싶어 고쳐봤습니다..! */}
+            {!effect.username && member.username.length > 0 && (
               <span id='idMsg' style={{ color: "red" }}>
                 {message.username}
               </span>
@@ -186,11 +194,16 @@ const JoinForm = () => {
               onChange={handleValueChange}
             />
             {}
-            {effect.password ? (
+            {/* {effect.password ? (
               <span id='idMsg' style={{ color: "green" }}>
                 사용가능한 비밀번호입니다😄
               </span>
             ) : (
+              <span id='idMsg' style={{ color: "red" }}>
+                {message.password}
+              </span>
+            )} */}
+            {!effect.password && member.password.length > 0 && (
               <span id='idMsg' style={{ color: "red" }}>
                 {message.password}
               </span>
@@ -205,11 +218,17 @@ const JoinForm = () => {
               placeholder='비밀번호 확인'
               onChange={handleValueChange}
             />
-            {effect.passwordConfirm ? (
+            {/* {effect.passwordConfirm ? (
               <span id='idMsg' style={{ color: "green" }}>
                 비밀번호가 일치합니다😄
               </span>
             ) : (
+              <span id='idMsg' style={{ color: "red" }}>
+                {message.passwordConfirm}
+              </span>
+            )} */}
+
+            {!effect.passwordConfirm && member.passwordConfirm.length > 0 && (
               <span id='idMsg' style={{ color: "red" }}>
                 {message.passwordConfirm}
               </span>
@@ -232,11 +251,17 @@ const JoinForm = () => {
                 중복확인
               </button>
             </div>
-            {effect.nickName ? (
+            {/* {effect.nickName ? (
               <span id='idMsg' style={{ color: "green" }}>
                 사용가능한 닉네임입니다😄
               </span>
             ) : (
+              <span id='idMsg' style={{ color: "red" }}>
+                {message.nickName}
+              </span>
+            )} */}
+
+            {!effect.nickName && member.nickName.length > 0 && (
               <span id='idMsg' style={{ color: "red" }}>
                 {message.nickName}
               </span>
@@ -271,7 +296,6 @@ const JoinForm = () => {
             />
             여
           </label>
-
           <hr className='my-3' />
           <div className='form-group mb-3 mb-1'>
             <div
