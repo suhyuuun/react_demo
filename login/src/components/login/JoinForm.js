@@ -6,6 +6,7 @@ import { baseUrl } from "../../commonApi/todoApi";
 const JoinForm = () => {
   const navigator = useNavigate();
   // useState로쓸필요없다 화면에 표시되는게 아니어서..
+  // 오류창 띄울때 리렌더링이 필요한데 useRef는 리렌더링이 안되서 useState로 바꿔봤습니다!
   const [member, setMember] = useState({
     username: "",
     password: "",
